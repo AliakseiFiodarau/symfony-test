@@ -8,10 +8,10 @@ use App\Validator\IsLocaleTax as AppAssert;
 
 class ProductPrice
 {
-    private ?float $Price = null;
+    private ?float $price = null;
 
     #[AppAssert]
-    private ?string $TaxNumber = null;
+    private ?string $taxNumber = null;
 
     /**
      * Getter for price.
@@ -20,18 +20,18 @@ class ProductPrice
      */
     public function getPrice(): ?float
     {
-        return $this->Price;
+        return $this->price;
     }
 
     /**
      * Setter for price.
      *
-     * @param float $Price
+     * @param float $price
      * @return $this
      */
-    public function setPrice(float $Price): self
+    public function setPrice(float $price): self
     {
-        $this->Price = $Price;
+        $this->price = $price;
 
         return $this;
     }
@@ -43,18 +43,18 @@ class ProductPrice
      */
     public function getTaxNumber(): ?string
     {
-        return $this->TaxNumber;
+        return $this->taxNumber;
     }
 
     /**
      * Setter for tax number.
      *
-     * @param string $TaxNumber
+     * @param string $taxNumber
      * @return $this
      */
-    public function setTaxNumber(string $TaxNumber): self
+    public function setTaxNumber(string $taxNumber): self
     {
-        $this->TaxNumber = $TaxNumber;
+        $this->taxNumber = $taxNumber;
 
         return $this;
     }

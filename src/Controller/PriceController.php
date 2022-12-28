@@ -18,7 +18,7 @@ class PriceController extends AbstractController
      * Also rendering page displaying modified price.
      *
      * @param Request $request
-     * @param PriceModifier $priceModifyer
+     * @param PriceModifier $priceModifier
      * @return Response
      */
     #[Route(
@@ -26,7 +26,7 @@ class PriceController extends AbstractController
         name: 'app_price',
         methods: ['GET', 'POST']
     )]
-    public function index(Request $request, PriceModifier $priceModifyer): Response
+    public function index(Request $request, PriceModifier $priceModifier): Response
     {
         $form = $this->createForm(PriceType::class);
 
@@ -34,7 +34,7 @@ class PriceController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $price = $form->getData()->getPrice();
             $taxNumber = $form->getData()->getTaxNumber();
-            $newPrice = $priceModifyer->modifyPrice($price, $taxNumber);
+            $newPrice = $priceModifier->modifyPrice($price, $taxNumber);
 
             return $this->render('price/update.html.twig', [
                 'price' => $newPrice
